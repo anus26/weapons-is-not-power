@@ -1,19 +1,27 @@
-import React, { createContext } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './Pages/Authentication/Login'
+import Layouts from './Compnents/Layouts'
+import Home from './Pages/Home'
 
-export const MyContext=createContext()
+
+
+
 const App = () => {
   return (
-<>
+
 <BrowserRouter>
-<MyContext.Provider>
+
   <Routes>
-    <Route path='/' element={<Login/>}/>
+    <Route path='/' element={<Layouts/>}>
+    <Route index element={<Home />} /> 
+    </Route>
+    <Route path ='login' element={<Login/>}/>
   </Routes>
-</MyContext.Provider>
+
 </BrowserRouter>
-</>
+
+
   )
 }
 
